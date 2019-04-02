@@ -18,7 +18,7 @@ h1 {
     text-align: center;
     border-style: solid;
     border-width: 6px;
-    border-color: rgba(124, 110, 170, 0.4);
+    border-color: rgba(42, 34, 80);
     cursor: pointer;
 }
 
@@ -26,12 +26,22 @@ header li {
     list-style: none;
     display: inline-block;
 }
+#content {
+    border: 5px solid black;
+    border-radius: 5px;
+}
 
-/*
 p {
     color: blue;
 }
 
 p {
-    color: green;
-}*/
+    background-color: black;
+}
+#bg-id{
+    background-color: deeppink;
+}
+.bg-class
+{
+    background-color: teal;
+}
