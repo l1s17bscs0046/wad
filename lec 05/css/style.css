@@ -7,11 +7,11 @@ https://specificity.keegan.st/
 https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance
 */
 
-body {
+/*body {
     background-image: url(../images/crossline-lines.png);
     /*background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;*/
+    background-position: center;
 }
 h1 {
     color: #3C2B74;
@@ -44,4 +44,11 @@ p {
 .bg-class
 {
     background-color: teal;
+}*/
+.box{
+
+    color:red;
+    border:5px solid blue;
+    display:inline-block;
+    padding:20px 40px;
 }

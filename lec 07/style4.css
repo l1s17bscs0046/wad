@@ -1,0 +1,13 @@
+.box{
+
+    color:red;
+    border:5px solid blue;
+    display:inline-block;
+    padding:20px 40px;
+}
+
+.highlight{
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    font-style:italic;
+}
