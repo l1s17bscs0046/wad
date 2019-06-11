@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-   $con = mysqli_connect("localhost","root","","TechBoxDB");
+$con = mysqli_connect("localhost","root","","techboxdb");
 ?>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-12 no-padding">
             <nav class="navbar navbar-light bg-light navbar-expand-sm fixed-top">
-                <a class="navbar-brand" href="index.html"><img src="media/logo.png" width="175" height="50" alt="logo">
+                <a class="navbar-brand" href="index.php"><img src="media/logo.png" width="175" height="50" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button"
                         data-toggle="collapse"
@@ -41,13 +41,13 @@
                     <div class="col-lg-3 col-md-4 col-sm-5">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-sm-right">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html"><i class="fas fa-heart sc-color fa-2x"></i></a>
+                                <a class="nav-link" href="index.php"><i class="fas fa-heart sc-color fa-2x"></i></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html"><i class="fas fa-shopping-cart sc-color fa-2x"></i></a>
+                                <a class="nav-link" href="index.php"><i class="fas fa-shopping-cart sc-color fa-2x"></i></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html"> <span class="sc-fs">Login </span></a>
+                                <a class="nav-link" href="index.php"> <span class="sc-fs">Login </span></a>
                             </li>
                         </ul>
                     </div>
@@ -68,18 +68,14 @@
                 </a>
                 <ul class="collapse show list-unstyled" id="homeSubmenu">
                     <?php
-                      $result = mysqli_query($con,"select * from categories");
-                      while($row = mysqli_fetch_assoc($result))
-                      {
-                          echo " <li><a class='nav-link'  href='#'>".$row['cat_title']."</a></li>";
-                      }
-
+                    $getCatsQuery = "select * from categories";
+                    $getCatsResult = mysqli_query($con,$getCatsQuery);
+                    while($row = mysqli_fetch_assoc($getCatsResult)){
+                        $cat_id = $row['cat_id'];
+                        $cat_title = $row['cat_title'];
+                        echo "<li><a class='nav-link'  href='#'>$cat_title</a></li>";
+                    }
                     ?>
-                    <!--<li><a class='nav-link'  href='#'>Laptops</a></li>
-                    <li><a class='nav-link'  href='#'>Computers</a></li>
-                    <li><a class='nav-link'  href='#'>Mobiles</a></li>
-                    <li><a class='nav-link'  href='#'>Watches</a></li>
-                    <li><a class='nav-link'  href='#'>Cameras</a></li>-->
                 </ul>
             </li>
             <li class="active">
@@ -89,18 +85,14 @@
                 </a>
                 <ul class="collapse show list-unstyled" id="pageSubmenu">
                     <?php
-                    $result2 = mysqli_query($con,"select * from brands");
-                    while($row = mysqli_fetch_assoc($result2))
-                    {
-                        echo " <li><a class='nav-link'  href='#'>".$row['Brand_title']."</a></li>";
-                    }
-
+                        $getBrandsQuery = "select * from brands";
+                        $getBrandsResult = mysqli_query($con,$getBrandsQuery);
+                        while($row = mysqli_fetch_assoc($getBrandsResult)){
+                            $brand_id = $row['brand_id'];
+                            $brand_title = $row['brand_title'];
+                            echo "<li><a class='nav-link'  href='#'>$brand_title</a></li>";
+                        }
                     ?>
-                   <!-- <li><a class='nav-link'  href='#'>HP</a></li>
-                    <li><a class='nav-link'  href='#'>DELL</a></li>
-                    <li><a class='nav-link'  href='#'>APPLE</a></li>
-                    <li><a class='nav-link'  href='#'>SAMSUNG</a></li>
-                    <li><a class='nav-link'  href='#'>SONY</a></li>-->
                 </ul>
             </li>
             <li>
@@ -120,7 +112,15 @@
     <article id="content" class="container-fluid bg-white">
 
         <div class="row">
-                Coming Soon
+            <?php
+
+            $getCatsQuery = "select * from products";
+            $getCatsResult = mysqli_query($con,$getCatsQuery);
+            while($row = mysqli_fetch_assoc($getCatsResult)){
+                $pro_title = $row['pro_title'];
+                echo "<li><a class='nav-link'  href='#'>$pro_title</a></li>";
+            }
+            ?>
         </div>
     </article>
 
